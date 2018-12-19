@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Détail du site";
+}
+<h2>@ViewData["Title"]</h2>
+
+
+<h3>Site de @Model.nom </h3>
+<a>
+    @Html.ActionLink("Ajouter un nouveau spot","Create","Spot",new{id = Model.id})
+</a>
+
+<table class ="table table-striped">
+    <tr>
+        <td>Nom du spot</td>
+        <td>Coordonnées GPS</td>
+    </tr>
+    @foreach (var item in ViewBag.spot)
+    {
+    <tr>
+        <td>@item.nom</td>
+        <td>@item.gps</td>
+    </tr>
+    }
+</table>

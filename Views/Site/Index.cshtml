@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Mes sites de pêche";
+}
+<h2>@ViewData["Title"]</h2>
+
+<a>
+    @Html.ActionLink("Ajout d'un nouveau site","Create","Site")
+</a>
+
+<table class="table table-striped">
+    <tr>
+        <th>Nom du site</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.nom</td>
+            <td>                 
+                <a>
+                    @Html.ActionLink("Consulter","Detail",new {id = item.id})
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

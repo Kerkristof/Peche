@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Détail de la cession";
+}
+<h2>@ViewData["Title"]</h2>
+<ul>
+    <li><strong>Info Météo: </strong>@Model.meteo</li>
+    <li><strong>Info marée: </strong>@Model.maree</li>
+    <li><strong>Nom du site: </strong>@Model.site_nom</li>
+</ul>
+
+<h3>Prises de la cession</h3>
+<a>
+    @Html.ActionLink("Ajouter une nouvelle prise","Create","Prise")
+</a>
+<table class ="table table-striped">
+    <tr>
+        <td>Espece</td>
+        <td>Taille</td>
+        <td>Prelèvement</td>
+        <td>Spot</td>
+        <td>Coordonnées GPS</td>
+    </tr>
+    @foreach (var item in ViewBag.prise)
+    {
+    <tr>
+        <td>@item.nom_espece</td>
+        <td>@item.taille</td>
+        <td>@item.preleve</td>
+        <td>@item.nom_spot</td>
+        <td>@item.gps_spot</td>
+    </tr>
+    }
+</table>

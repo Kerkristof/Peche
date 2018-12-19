@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Espèces de poisson";
+}
+<h2>@ViewData["Title"]</h2>
+<a>
+    @Html.ActionLink("Ajouter une nouvelle espèce","Create")
+</a>
+<table class="table table-striped">
+    <tr>
+        <th>Nom</th>
+        <th>Nom alternatif</th>
+        <th>Taille minimum de prélèvement</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.nom</td>
+            <td>@item.nom_alt</td>
+            <td>@item.taille_min</td>
+        </tr>
+    }
+</table>
